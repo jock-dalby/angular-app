@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  showRecipes= true;
+
+  handleNavChanged(details: string) {
+    this.showRecipes = details === 'recipes';
+  }
 }
