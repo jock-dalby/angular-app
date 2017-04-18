@@ -1,7 +1,10 @@
-import { EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService} from '../shopping-list/service';
+
+@Injectable()
 
 export class RecipesService {
 
@@ -32,11 +35,16 @@ export class RecipesService {
   ];
 
   constructor(
+      private shoppingListService: ShoppingListService
   ) { }
 
   getRecipes() {
     // Will return an array that is an exact copy of recipes but not a direct reference to it. This will prevent the original array from getting altered or deleted from outside this file.
     return this.recipes.slice();
+  }
+
+  onAddToShoppingList(ingredients: Ingredient[]) {
+      this.shoppingListService.onAddToShoppingList(ingredients);
   }
 
 }
