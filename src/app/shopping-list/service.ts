@@ -4,7 +4,7 @@ import { Ingredient } from '../shared/ingredient.model';
 
 export class ShoppingListService {
 
-  ingredientAdded = new EventEmitter<Ingredient>();
+  ingredientsChanged = new EventEmitter<Ingredient[]>();
 
   constructor() { }
 
@@ -14,7 +14,15 @@ export class ShoppingListService {
   ];
 
   getIngredients() {
+    // Will return an array that is an exact copy of recipes but not a direct reference to it. This will prevent the original array from getting altered or deleted from outside this file.
     return this.ingredients.slice();
+  }
+
+  addIngredient(ingredient: Ingredient) {
+    // Add new ingredient to ingredients array.
+    this.ingredients.push(ingredient);
+    // When a new ingredient is added we send out an EventEmitter so any subscribed components are sent the updated array.
+    this.ingredientsChanged.emit(this.ingredients);
   }
 
 }
