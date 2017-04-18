@@ -13,6 +13,9 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 
+import { ShoppingListService } from './shopping-list/service';
+import { RecipesService } from './recipes/service';
+
 @NgModule({
   declarations: [
     AppComponent,
