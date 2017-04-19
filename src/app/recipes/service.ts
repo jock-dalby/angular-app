@@ -43,8 +43,8 @@ export class RecipesService {
     return this.recipes.slice();
   }
 
-  onAddToShoppingList(ingredients: Ingredient[]) {
-      this.shoppingListService.onAddToShoppingList(ingredients);
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+      this.shoppingListService.addIngredients(ingredients);
   }
 
 }
