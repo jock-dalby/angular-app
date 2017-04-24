@@ -8,8 +8,6 @@ import { ShoppingListService} from '../shopping-list/service';
 
 export class RecipesService {
 
-  recipeSelected = new EventEmitter<Recipe>();
-
   recipes: Recipe[] = [ // Shows the 'recipes' property, is an array of objects, each of the type 'Recipe'.
     // Using the 'new' keyword we can create a new object based on the Recipe blueprint by calling the constructor function.
     new Recipe(
