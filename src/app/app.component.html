@@ -1,12 +1,8 @@
-<app-header (navChanged)="handleNavChanged($event)"></app-header>
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>
-        <router-outlet></router-outlet>
-        <!--<app-recipes *ngIf="showRecipes"></app-recipes>-->
-        <!--<app-shopping-list *ngIf="!showRecipes"></app-shopping-list>-->
-      </h1>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
