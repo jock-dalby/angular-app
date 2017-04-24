@@ -16,6 +16,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 
 import { ShoppingListService } from './shopping-list/service';
 import { NoRecipeDetailComponent } from './recipes/no-recipe-detail/no-recipe-detail.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NoRecipeDetailComponent } from './recipes/no-recipe-detail/no-recipe-de
     RecipeListComponent,
     RecipeItemComponent,
     DropdownDirective,
-    NoRecipeDetailComponent
+    NoRecipeDetailComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

@@ -11,16 +11,13 @@ import { RecipesService} from '../../service'
 export class RecipeItemComponent implements OnInit {
 
   @Input() recipe: Recipe; // Create property recipe of type Recipe which is passed in from a parent component 'Input()'
+  @Input() index: number;
 
   constructor(
       private recipesService: RecipesService
   ) {}
 
   ngOnInit() {
-  }
-
-  onSelected() {
-    this.recipesService.recipeSelected.emit(this.recipe);
   }
 
 }
