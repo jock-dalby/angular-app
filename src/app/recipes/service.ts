@@ -3,10 +3,13 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService} from '../shopping-list/service';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 
 export class RecipesService {
+
+  recipesChanged = new Subject<Recipe[]>();
 
   recipes: Recipe[] = [ // Shows the 'recipes' property, is an array of objects, each of the type 'Recipe'.
     // Using the 'new' keyword we can create a new object based on the Recipe blueprint by calling the constructor function.
@@ -47,6 +50,16 @@ export class RecipesService {
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
       this.shoppingListService.addIngredients(ingredients);
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
   }
 
 }

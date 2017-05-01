@@ -27,12 +27,12 @@ export class ShoppingListService {
     // Add new ingredient to ingredients array.
     this.ingredients.push(ingredient);
     // When a new ingredient is added we send out an EventEmitter so any subscribed components are sent the updated array.
-    this.ingredientsChanged.next(this.ingredients);
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
-    this.ingredientsChanged.next(this.ingredients);
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   updateIngredient(newIngredient: Ingredient, index: number) {
