@@ -13,7 +13,7 @@ export class RecipesService {
     new Recipe(
         'Cheese Pizza',
         'Delicious as bro!',
-        'http://maxpixel.freegreatpicture.com/static/photo/640/Cheese-Lunch-Slice-Pizza-Toppings-Italian-Dinner-329523.jpg',
+        'https://c1.staticflickr.com/7/6215/6306091349_8cf7571ff8_z.jpg',
         [
           new Ingredient('bread', 6),
           new Ingredient('cheese', 4),
