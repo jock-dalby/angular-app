@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 import { Recipe } from '../recipe.model';
 import { RecipesService } from '../service';
@@ -19,7 +19,8 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(
       private route: ActivatedRoute,
-      private recipesService: RecipesService
+      private recipesService: RecipesService,
+      private router: Router
   ) { }
 
   ngOnInit() {
@@ -43,12 +44,17 @@ export class RecipeEditComponent implements OnInit {
       }));
   }
 
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
   onSubmit() {
     if (this.editMode) {
       this.recipesService.updateRecipe(this.id, this.recipeForm.value);
     } else {
       this.recipesService.addRecipe(this.recipeForm.value);
     }
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   private initForm() {
@@ -83,8 +89,8 @@ export class RecipeEditComponent implements OnInit {
         'imagePath': new FormControl(recipeImagePath, Validators.required),
         'description': new FormControl(recipeDescription, Validators.required),
         'ingredients': recipeIngredients
-      }
-    );
+      });
+    console.log(this.recipeForm);
   }
 
 }
