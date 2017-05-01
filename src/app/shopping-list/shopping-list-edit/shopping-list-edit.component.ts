@@ -48,6 +48,13 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
     }
   }
 
+  onClear() {
+    this.shoppingListForm.setValue({
+      name: '',
+      amount: ''
+    });
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
